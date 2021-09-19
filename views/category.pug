@@ -1,0 +1,31 @@
+extends layout 
+
+block content 
+    h1= title
+    h2= description 
+    hr
+    div
+        for item in items 
+            h1= item.name 
+            h2= item.description
+            h3 Price: #{item.price}
+            h3 Stock: #{item.stock}
+            hr
+        form(action = '/add' method='POST')
+                input(type='hidden' id='hid' name='hid' value=id)
+                h2 Item Name (Must be longer than 3 characters and shorter than 100)
+                input(type='text' name='itemname')
+
+                h2 Description (Must be longer than 15 characters and shorter than 400)
+                input(type='text' name='description')
+
+                h2 Stock (Must be less than 10000)
+                input(type='text' name='stock')
+
+                h2 Price (Must be less than 10000)
+                input(type='text' name='price')
+
+                button Add New Item
+
+
+        

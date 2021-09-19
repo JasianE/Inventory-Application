@@ -1,0 +1,20 @@
+extends layout 
+
+block content 
+    h1= title 
+    div
+        for category in categories 
+            h1= category.name
+            h2= category.description
+            form(action = '/more' method='POST')
+                input(type='hidden' id='hid' name='hid' value=category.id)
+                button See
+        form(action = '/category' method='POST')
+            h2 Name (Must be longer than 3 characters and shorter than 100)
+            input(type='text' name='name')
+
+            h2 Description (Must be shorter than 100 characters)
+            input(type='text' name='description')
+
+            button Add New Item
+
