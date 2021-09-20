@@ -10,8 +10,7 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-const mongoDB = 'mongodb+srv://Esam:greendayrocks56@cluster0.wrnrs.mongodb.net/Cluster0?retryWrites=true&w=majority'
-mongoose.connect(mongoDB, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(process.env.Host, {useNewUrlParser: true, useUnifiedTopology: true})
 
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'MongoDB Connection Error:'))
